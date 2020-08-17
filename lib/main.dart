@@ -1,4 +1,5 @@
 import 'package:dashboard/CustomAppBar.dart';
+import 'package:dashboard/CustomBottomBar.dart';
 import 'package:dashboard/DiscountTile.dart';
 import 'package:dashboard/ShowCase.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ void main() => runApp(
     home: MyApp(),
   )
 );
+int _currentIndex = 0;
 
 class MyApp extends StatelessWidget {
   @override
@@ -17,6 +19,9 @@ class MyApp extends StatelessWidget {
         beginColor: Colors.indigo[800],
         endColor: Colors.deepPurple[500],
       ),
+      bottomNavigationBar: CustomBottomBar(
+        selectedIndex: _currentIndex,
+      ),
       body: Container(
         padding: EdgeInsets.all(12),
 
@@ -25,6 +30,7 @@ class MyApp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               SizedBox(height: 16,),
+              //Hardcoding without Functionality
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -37,8 +43,12 @@ class MyApp extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 40,),
+              //Guidance Icons to differentiate the offers meant for website, delivery or shop
               ShowCaseIcons(),
               SizedBox(height: 40),
+              /*Actual Display of Offers/Coupons topLeft : ShopName, topRight : Guidance Icons, bottom : Description,Expiry Date and Favs/Share Icons
+              Everything Defined Inside the DiscountTile kept as Positioned widget on a Container with the help of Stack Widget.
+              */
               DiscountTile(
                 shopName: "ANK Wear",
                 shopCategory: "Fashion",

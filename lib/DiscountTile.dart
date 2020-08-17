@@ -21,7 +21,21 @@ class DiscountTile extends StatelessWidget {
       ),
       child: Stack(
         children: <Widget>[
+          //topRight : Guidance Icons
+          Positioned(
+            right: 4,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Icon(Icons.local_grocery_store,color: Colors.purple,),
+                Icon(Icons.directions_bike,color: Colors.purple),
+                Icon(Icons.network_check,color: Colors.purple)
+              ],
+            ),
+          ),
           //Shop Name Goes Here
+          //topLeft : Shop Name
           Positioned(
             top: 4,
             left: 4,
@@ -51,7 +65,7 @@ class DiscountTile extends StatelessWidget {
             ),
           ),
 
-          //Multiple Images access goes here
+          //Navigation for accessing multiple goes here but kept as only Icon
           Positioned(
             bottom: MediaQuery.of(context).size.width /2 - 30,
             right: 2,
@@ -65,7 +79,7 @@ class DiscountTile extends StatelessWidget {
 
 
 
-          //Description of the discount goes here
+          //(Bottom) Description of the discount goes here
           Positioned(
             bottom:0,
             height: 70,
@@ -80,6 +94,7 @@ class DiscountTile extends StatelessWidget {
               child: Text("%5 Cashback on any of your purchase from ANK Shop,check your nearest shop",style: TextStyle(wordSpacing:4,color: Colors.white,fontWeight: FontWeight.bold),),
             ),
           ),
+
           //Expiry Date of the offer goes here
           Positioned(
             bottom: 4,
